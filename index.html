@@ -34,20 +34,44 @@
       text-align: center;
       font-size: 80%;
     }
+    #icon {
+        margin: 100px auto -100px;
+        display: block;
+    }
     </style>
   </head>
   <body> 
-    <h1>
+    <canvas id="icon" width="128" height="128" style="display: none;"></canvas>
+    <h1 id="forecast">
     
     <!--- Edit the following line -->
-    
-    No
+    Checking&hellip;
     
     <!-- Don't edit past this point -->  
 
     </h1>
     <p class="credits">made by <a href="http://jden.us">jden</a> and the <a href="http://chitchatt.org/">Chattanooga Code for America fellows</a></p>
     <em>please note, this is not an official (or necessarily accurate) website. it's meant to be fun. <a href="http://www.wunderground.com/US/TN/099.html">be safe!</a></em>
+    <script src="skycons/skycons.js"></script>
+    <script>
+        (function(head, script, forecast, API, skycons, icon) {
+            "use strict";
+
+            window.showConditions   =   function(data) {
+                if(data && data.currently && data.currently.icon && data.currently.icon === 'snow') {
+                    forecast.innerHTML  =   'Yes';
+                    skycons.add(icon, data.currently.icon);
+                    icon.removeAttribute('style');
+                    skycons.play();
+                } else {
+                    forecast.innerHTML  =   'No';
+                }
+            };
+
+            script.src  =   API;
+            head.appendChild(script);
+        })(document.head || document.getElementsByTagName('head')[0],document.createElement('script'), document.getElementById('forecast'), 'https://api.forecast.io/forecast/0de1d0d0a092cba91e04c273570a286b/35.0456,-85.2672?callback=showConditions', new window.Skycons({'color': '#222222'}), document.getElementById('icon'));
+    </script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
