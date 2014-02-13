@@ -3,21 +3,14 @@
   <head>
     <title>Is it snowing in San Juan, Puerto Rico?</title>
     <style>
-    @font-face {
-      font-family: 'ChatypeB2.1RegularRegular';
-      src: url('chatypeb2.1regular-webfont.eot');
-      src: url('chatypeb2.1regular-webfont.eot?#iefix') format('embedded-opentype'),
-           url('chatypeb2.1regular-webfont.woff') format('woff'),
-           url('chatypeb2.1regular-webfont.ttf') format('truetype');
-      font-weight: normal;
-      font-style: normal;
-    }
+    @import url(http://fonts.googleapis.com/css?family=Capriola);
     body{
-      background-color: #fff;
-      font-family: "ChatypeB2.1RegularRegular";
+      background-color: #fbd1cf;
+      font-family: "Capriola";
+      color: #ffa57d;
     }
     h1 { 
-      color: #222;
+      color: #ffa57d;
       text-align: center;
       font-size: 100px;
       margin-top: 100px;
@@ -25,9 +18,11 @@
     .credits {
       text-align: center;
       margin-top: 100px;
+      color: #888;
     }
     a{
-      color: #888;
+      color: #ffa57d;
+/*       text-decoration: none; */
     }
     em{
       display: block;
@@ -42,6 +37,7 @@
     .viewsource {
       text-align: center;
       margin-top: 1.5em;
+      color: #888;
     }
     #icon {
         margin: 100px auto -100px;
@@ -50,7 +46,6 @@
     </style>
   </head>
   <body> 
-    <canvas id="icon" width="128" height="128" style="display: none;"></canvas>
     <h1 id="forecast">
     
     <!--- Edit the following line -->
@@ -59,14 +54,8 @@
     <!-- Don't edit past this point -->  
 
     </h1>
-    <p class="credits">made by <a href="http://jden.us">jden</a> and the <a href="http://chitchatt.org/">Chattanooga Code for America fellows</a></p>
-    <em>please note, this is not an official (or necessarily accurate) website. it's meant to be fun. <a href="http://www.wunderground.com/US/TN/099.html">be safe!</a></em>
-    <ul>
-      <li><a href="http://isitsnowingincharlotte.com/">isitsnowingincharlotte.com</a></li>
-      <li><a href="http://www.isitsnowinginatlantaga.com/">isitsnowinginatlantaga.com</a></li>
-      <li><a href="http://www.snowinginlex.com/">snowinginlex.com</a></li>
-      <li><a href="http://www.snowed-island.com/">snowed-island.com</a></li>
-    </ul>
+    <p class="credits">made by <a href="http://jden.us">jden</a>, forked by <a href="http://ainsleywagoner.com">Ainsley</a> and the <a href="http://coquicoders.org/">Puerto Rico Code for America fellows</a></p>
+    <em>please note, this is not an official (or necessarily accurate) website. it's meant to be fun.</em>
     <p class="viewsource"><a href="https://github.com/jden/snowchatt">view the source</a> <br> and start your own</p>
 
     <script src="skycons/skycons.js"></script>
@@ -76,18 +65,18 @@
 
             window.showConditions   =   function(data) {
                 if(data && data.currently && data.currently.icon && data.currently.icon === 'snow') {
-                    forecast.innerHTML  =   'Yes';
+                    forecast.innerHTML  =   'Yes.<br>Can you believe it?';
                     skycons.add(icon, data.currently.icon);
                     icon.removeAttribute('style');
                     skycons.play();
                 } else {
-                    forecast.innerHTML  =   'No, of course not.';
+                    forecast.innerHTML  =   'No.<br>Of course not.';
                 }
             };
 
             script.src  =   API;
             head.appendChild(script);
-        })(document.head || document.getElementsByTagName('head')[0],document.createElement('script'), document.getElementById('forecast'), 'https://api.forecast.io/forecast/0de1d0d0a092cba91e04c273570a286b/35.0456,-85.2672?callback=showConditions', new window.Skycons({'color': '#222222'}), document.getElementById('icon'));
+        })(document.head || document.getElementsByTagName('head')[0],document.createElement('script'), document.getElementById('forecast'), 'https://api.forecast.io/forecast/0de1d0d0a092cba91e04c273570a286b/18.4500,66.0667?callback=showConditions', new window.Skycons({'color': '#222222'}), document.getElementById('icon'));
     </script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -95,7 +84,7 @@
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-47969102-1', 'isitsnowinginchattanooga.com');
+  ga('create', 'UA-47969102-1', 'isitsnowinginsanjuan.com');
   ga('send', 'pageview');
 
 </script>
