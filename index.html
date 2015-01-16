@@ -55,7 +55,7 @@
     
     <!--- Edit the following line -->
     <!--- Checking&hellip; -->
-    Sorta kinda
+    OMG MILK AND BREAD
     <!-- Don't edit past this point -->  
 
     </h1>
@@ -69,27 +69,6 @@
       <li><a href="http://isitsnowinginsanjuan.com/">isitsnowinginsanjuan.com</a></li>
     </ul>
     <p class="viewsource"><a href="https://github.com/jden/snowchatt">view the source</a> <br> and start your own</p>
-
-    <script src="skycons/skycons.js"></script>
-    <script>
-        (function(head, script, forecast, API, skycons, icon) {
-            "use strict";
-
-            window.showConditions   =   function(data) {
-                if(data && data.currently && data.currently.icon && data.currently.icon === 'snow') {
-                    forecast.innerHTML  =   'Yes';
-                    skycons.add(icon, data.currently.icon);
-                    icon.removeAttribute('style');
-                    skycons.play();
-                } else {
-                    forecast.innerHTML  =   'Nope';
-                }
-            };
-
-            script.src  =   API;
-            head.appendChild(script);
-        })(document.head || document.getElementsByTagName('head')[0],document.createElement('script'), document.getElementById('forecast'), 'https://api.forecast.io/forecast/0de1d0d0a092cba91e04c273570a286b/35.0456,-85.2672?callback=showConditions', new window.Skycons({'color': '#222222'}), document.getElementById('icon'));
-    </script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
